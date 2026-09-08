@@ -1,0 +1,154 @@
+<title>MonaDev autoSocial Poster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground: #FAF9F7;
+    --raise: #FFFFFF;
+    --ink: #201E1B;
+    --muted: #6B655E;
+    --rule: #E4E0D8;
+    --accent: #3A5A48;
+    --accent-soft: #EDF1EC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #17181A;
+      --raise: #1E1F22;
+      --ink: #E9E6E0;
+      --muted: #9B958C;
+      --rule: #33342F;
+      --accent: #83AB90;
+      --accent-soft: #21261F;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #17181A;
+    --raise: #1E1F22;
+    --ink: #E9E6E0;
+    --muted: #9B958C;
+    --rule: #33342F;
+    --accent: #83AB90;
+    --accent-soft: #21261F;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Spectral", Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 40rem; margin: 0 auto; padding: 4.5rem 1.5rem 5rem; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.9rem;
+  }
+  h1 {
+    font-weight: 600;
+    font-size: clamp(2rem, 6vw, 2.9rem);
+    line-height: 1.12;
+    text-wrap: balance;
+    margin: 0 0 1.1rem;
+  }
+  .tagline { font-size: 1.15rem; color: var(--muted); margin: 0 0 2.75rem; max-width: 32rem; }
+
+  .rule { height: 1px; background: var(--rule); border: 0; margin: 0 0 2.5rem; }
+
+  h2 { font-weight: 600; font-size: 1.05rem; margin: 0 0 0.6rem; }
+  p { margin: 0 0 1rem; }
+  section { margin-bottom: 2rem; }
+
+  ol { margin: 0; padding-left: 1.3rem; }
+  ol li { margin-bottom: 0.55rem; }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 2.5rem;
+  }
+  .links a {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.82rem;
+    text-decoration: none;
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    background: var(--raise);
+    padding: 0.55rem 0.9rem;
+    border-radius: 2px;
+  }
+  .links a:hover { border-color: var(--accent); color: var(--accent); }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    margin-top: 3.5rem;
+    padding-top: 1.5rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.9;
+  }
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">MonaDev</p>
+  <h1>autoSocial Poster</h1>
+  <p class="tagline">
+    A personal automation tool that publishes a shop owner&rsquo;s own product
+    videos and photos to their own connected social accounts.
+  </p>
+
+  <hr class="rule">
+
+  <section>
+    <h2>What it does</h2>
+    <p>
+      The operator drops a video or photo into a folder in their own Google Drive
+      and names the file with a short brief. The tool then drafts a caption, adds
+      the shop&rsquo;s hashtags, and posts the file to the accounts the operator
+      has connected &mdash; including their own TikTok account through the official
+      TikTok Content Posting API.
+    </p>
+  </section>
+
+  <section>
+    <h2>How a post happens</h2>
+    <ol>
+      <li>The operator adds a media file to their intake folder.</li>
+      <li>The tool reads the file, drafts a caption, and writes it to a Google Sheet.</li>
+      <li>The tool uploads the file and posts it to each connected account.</li>
+      <li>The resulting post link is written back to the sheet.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Scope of access</h2>
+    <p>
+      For TikTok, the tool uses only the <strong>video.upload</strong> and
+      <strong>video.publish</strong> permissions, plus a one-time read of creator
+      info that the Content Posting API requires. It does not read messages,
+      followers, or analytics, and it stores its working data in the
+      operator&rsquo;s own Google account rather than on any server we run.
+    </p>
+  </section>
+
+  <div class="links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
+
+  <footer>
+    MonaDev — autoSocial Poster<br>
+    Contact: a.cha13033@gmail.com
+  </footer>
+</div>
